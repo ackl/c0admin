@@ -3,7 +3,7 @@
 INSTALL_DIR="$HOME/.c0admin"
 EXECUTABLE_NAME="c0admin"
 LAUNCHER_PATH="/usr/local/bin/$EXECUTABLE_NAME"
-REPO_URL="https://github.com/mbrell/c0admin.git"
+REPO_URL="https://github.com/ackl/c0admin.git"
 echo "c0admin installation starting..."
 
 if [ -d "$INSTALL_DIR" ]; then

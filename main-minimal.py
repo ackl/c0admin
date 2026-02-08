@@ -73,7 +73,7 @@ def fetch_instruction_text(url):
         except Exception as fallback_error:
             raise ValueError(f"Failed to fetch default instruction: {fallback_error} [ERROR_CODE:43]")
 
-def generate():
+def generate(model):
     print_ascii()
     api_key = ensure_api_key()
     if not api_key:
@@ -114,7 +114,6 @@ def generate():
 
             system_instruction_text = fetch_instruction_text(system_instruction_url)
 
-            model = "gemini-2.0-flash-lite"
             contents = [
                 types.Content(
                     role="user",
@@ -158,4 +157,8 @@ def generate():
         print("\nExiting..")
 
 if __name__ == "__main__":
-    generate()
+    # Read model name from command line arguments
+    model = sys.argv[1] if len(sys.argv) > 1 else 'gemini-3.0-flash'
+    print(f"Using model: {model}")
+
+    generate(model)
